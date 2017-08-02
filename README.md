@@ -11,7 +11,7 @@ This script downloads anime videos from Crunchyroll using youtube-dl.
 2. youtube-dl installed.
 3. A Crunchyroll account. You can use a free account but will only allow downloads up to 480p and premium episodes won't work.
 4. A working brain.
-5. 
+ 
 #### How does it work ?
 First, clone this repository. You can do that from GitHub web interface or with the command :
 `git clone https://github.com/r33int/crunchyrollDownloader.git`
