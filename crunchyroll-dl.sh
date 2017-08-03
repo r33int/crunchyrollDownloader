@@ -68,7 +68,7 @@ then
     echo Cookies file found.
     sleep 0.5
     clear
-    echo Where do you want to save your video ? Empty input will save to default path (home folder) 
+    echo 'Where do you want to save your video ? Empty input will save to default path (home folder)'
     tput setaf 1;read -e -p 'Enter path : ' output
     sleep 0.5
     clear
