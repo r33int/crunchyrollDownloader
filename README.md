@@ -26,8 +26,8 @@ Finally, execute it and follow the instructions.
 
 To authentificate to Crunchyroll, you will need a cookies.txt file. To extract this file, download this Chrome extension : https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg?hl=fr
 
-Once installed, go to crunchyroll.com, login if that's not already done (dont't forget to tick "Stay logged in"), then click on the extensions's icon, and click download.
+Once installed, go to crunchyroll.com, login if that's not already done (don't forget to tick "Stay logged in"), then click on the extensions's icon, and click download.
 
-![alt text](https://r33int.pw/pic/crdl.jpg)
+![](https://r33int.pw/pic/crdl.jpg)
 
 Finally, your cookies.txt file is ready.
