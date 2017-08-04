@@ -29,7 +29,7 @@ sleep 0.2
 echo Enjoy!
 sleep 0.2
 echo
-tput setaf 2;read -e -p 'First, enter the link of the video you want to donwload : ' link
+tput setaf 2;read -e -p 'First, enter the link of the video you want to download : ' link
 
 if [[ $link =~ $urlregex ]]
 then 
