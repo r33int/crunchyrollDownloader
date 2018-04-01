@@ -16,26 +16,26 @@ qualityregex='[1-3]'
 echo Checking for youtube-dl...
 sleep 0.2
 if ! type "youtube-dl" > /dev/null; then
-  tput setaf 1;echo youtube-dl not found. Please install it and relaunch this script
+  tput setaf 1;echo youtube-dl has not been found. Please install it and relaunch this script. If you are sure you have it installed, please open an issue on GitHub. https://l.r33.space/crdlissue
   echo Press CTRL+C to exit.
   sleep infinity
 else
 sleep 0.5
 clear
-tput setaf 6;echo Welcome !
+tput setaf 6;echo Welcome!
 sleep 0.2
-tput setaf 5;echo This is a script for downloading videos from Crunchyroll using youtube-dl.
+tput setaf 5;echo This script makes it easier to download anime videos from Crunchyroll using youtube-dl.
 sleep 0.2
 echo Enjoy!
 sleep 0.2
 echo
-tput setaf 2;read -e -p 'First, enter the link of the video you want to download : ' link
+tput setaf 2;read -e -p 'First, enter the link of the video you want to download: ' link
 
 if [[ $link =~ $urlregex ]]
 then 
     sleep 0.5
     clear
-    PS3='Now, select the quality you want to use : '
+    PS3='Now, select the quality you want to use: '
 	options=("480p" "720p" "1080p" "Exit")
 	select opt in "${options[@]}"
 	do
@@ -49,10 +49,11 @@ then
             break
             ;;
         "1080p")
-            quality='1080'        	
+            quality='1080'
             break
             ;;
         "Exit")
+            tput reset
             exit
             ;;
         *) 
@@ -62,27 +63,29 @@ done
 sleep 0.5
 cookiesstep:
 clear
-read -e -p 'Enter the exact path of your cookies.txt file. If you are not sure what is this file, check the README.md file. : ' cookies
+read -e -p 'Enter the path of your cookies.txt file. Not sure of what it is? Check the readme on GitHub for details. https://l.r33.space/crdl: ' cookies
 if [ -f $cookies ]
 then
     echo Cookies file found.
     sleep 0.5
     clear
-    echo 'Where do you want to save your video ? Empty input will save to default path (home folder)'
-    tput setaf 1;read -e -p 'Enter path : ' output
+    echo 'Where do you want to save your video? Empty input will save to the current path.'
+    tput setaf 1;read -e -p 'Enter path: ' output
     sleep 0.5
     clear
-    tput setaf 5;echo Alright. At the moment, this script can only download english subs. The possibility to change sub language will be added very soon.
+    tput setaf 5;echo 'Alright. At the moment, this script downloads english subtitles at the moment. If you need another language, feel free to modify the script!'
     echo Starting download...
     sleep 0.5
     tput setaf 4
     if [$output = ""]
     	then 
     	youtube-dl --write-sub --sub-lang enUS -f "best[height=$quality]" --cookies $cookies $link
-   		tput setaf 2;echo youtube-dl command completed ! Download should be done.
+   		tput setaf 2;echo 'youtube-dl command has completed! Download should be done. If you have encountered any issue, please open an issue on GitHub. https://l.r33.space/crdlissue'
+        tput reset
     else
     	youtube-dl -o "$output/%(title)s-%(id)s.%(ext)s" --write-sub --sub-lang enUS -f "best[height=$quality]" --cookies $cookies $link
-   		tput setaf 2;echo youtube-dl command completed ! Download should be done.
+   		tput setaf 2;echo 'youtube-dl command has completed! Download should be done. If you have encountered any issue, please open an issue on GitHub. https://l.r33.space/crdlissue'
+        tput reset
    	fi
 else
     tput setaf 1 echo Cookies file not found. Please try again.
