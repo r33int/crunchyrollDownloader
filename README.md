@@ -9,14 +9,14 @@ This script downloads anime videos from Crunchyroll using youtube-dl.
 ### Requirements :
 1. Any Linux distribution. Other unix systems untested but should work.
 2. youtube-dl installed.
-3. A Crunchyroll account. You can use a free account but will only allow downloads up to 480p and premium episodes won't work.
+3. A Crunchyroll account. You can use a free account but this will only allow downloads up to 480p and premium episodes won't work.
 4. A working brain.
  
 #### How does it work ?
-First, clone this repository. You can do that from GitHub web interface or with the command :
+First things first, clone this repository. You can do that from GitHub web interface or with the command:
 `git clone https://github.com/r33int/crunchyrollDownloader.git`
 
-Then, make the script executable using
+Make the script executable using:
 `chmod +x crunchyroll-dl.sh`
 
 Finally, execute it and follow the instructions.
@@ -28,6 +28,6 @@ To authentificate to Crunchyroll, you will need a cookies.txt file. To extract t
 
 Once installed, go to crunchyroll.com, login if that's not already done (don't forget to tick "Stay logged in"), then click on the extensions's icon, and click download.
 
-![](https://r33int.pw/pic/crdl.jpg)
+![](https://pic.r33.space/uploads/big/da7b0635af59caa0f5826f85e51d095b.png)
 
-Finally, your cookies.txt file is ready.
+Finally, your cookies.txt file is ready. For convenience, I recommand putting this file in the folder where the script is.
