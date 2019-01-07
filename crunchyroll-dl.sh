@@ -190,11 +190,13 @@ function language {
 	echo "9) Russian"
 	echo "10) Spanish"
 	echo "11) Spanish (Spain)"
-	echo "12) Go back"
-	echo "13) Exit"
+	echo "11) Spanish (Spain)"
+	echo "12) All"
+	echo "13) Go back"
+	echo "14) Exit"
 	echo ""
-	while [[ $OPTION2 !=  "1" && $OPTION2 != "2"  && $OPTION2 != "3" && $OPTION2 != "4" && $OPTION2 != "5" && $OPTION2 != "6" && $OPTION2 != "7" && $OPTION2 != "8" && $OPTION2 != "9" && $OPTION2 != "10" && $OPTION2 != "11" && $OPTION2 != "12" && $OPTION2 != "13" ]]; do
-		read -r -p "Select an option [1-13]: " OPTION2
+	while [[ $OPTION2 !=  "1" && $OPTION2 != "2"  && $OPTION2 != "3" && $OPTION2 != "4" && $OPTION2 != "5" && $OPTION2 != "6" && $OPTION2 != "7" && $OPTION2 != "8" && $OPTION2 != "9" && $OPTION2 != "10" && $OPTION2 != "11" && $OPTION2 != "12" && $OPTION2 != "13" && $OPTION2 !="14" ]]; do
+		read -r -p "Select an option [1-14]: " OPTION2
 	done
 	language2
 	}
@@ -245,12 +247,16 @@ function language {
 			language="esES"
 			download
 			;;
-		12) #Go back
+		12) #All
+			language="all"
+			download
+			;;
+		13) #Go back
 			OPTION2=""
 			tput reset
 			path
 			;;
-		13) #Exit
+		14) #Exit
 			quit
 			;;
 	esac
@@ -265,16 +271,36 @@ function download {
 	then
 		if quality="best"
 		then
-			youtube-dl --write-sub --sub-lang "$language" --cookies "$cookies" "$url"
+			if language="all"
+			then
+				youtube-dl --write-sub --cookies "$cookies" "$url"
+			else
+				youtube-dl --write-sub --sub-lang "$language" --cookies "$cookies" "$url"
+			fi
 		else
-			youtube-dl --write-sub --sub-lang "$language" -f "best[height=$quality]" --cookies "$cookies" "$url"
+			if language="all"
+			then
+				youtube-dl --write-sub --cookies "$cookies" -f "best[height=$quality]" "$url"
+			else
+				youtube-dl --write-sub --sub-lang "$language" -f "best[height=$quality]" --cookies "$cookies" "$url"
+			fi
 		fi
 	else
 		if quality="best"
 		then
-			youtube-dl -o "$path/%(title)s-%(id)s.%(ext)s" --write-sub --sub-lang "$language" --cookies "$cookies" "$url"
+			if language="all"
+			then
+				youtube-dl "$path/%(title)s-%(id)s.%(ext)s" --write-sub --cookies "$cookies" "$url"
+			else
+				youtube-dl "$path/%(title)s-%(id)s.%(ext)s" --write-sub --sub-lang "$language" --cookies "$cookies" "$url"
+			fi
 		else
-			youtube-dl -o "$path/%(title)s-%(id)s.%(ext)s" --write-sub --sub-lang "$language" -f "best[height=$quality]" --cookies "$cookies" "$url"
+			if language="all"
+			then
+				youtube-dl -o "$path/%(title)s-%(id)s.%(ext)s" --write-sub --cookies "$cookies" -f "best[height=$quality]" "$url"
+			else
+				youtube-dl -o "$path/%(title)s-%(id)s.%(ext)s" --write-sub --sub-lang "$language" -f "best[height=$quality]" --cookies "$cookies" "$url"
+			fi
 		fi
 	fi
 	echo ""
