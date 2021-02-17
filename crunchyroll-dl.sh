@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Some variables...
-urlregex='(http://crunchyroll.com/|http://www.crunchyroll.com)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+urlregex='(http://crunchyroll.com/|http://www.crunchyroll.com|https://www.crunchyroll.com|https://crunchyroll.com)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 
 function start {
 	tput setaf 4; echo "Checking for youtube-dl..."
@@ -195,7 +195,7 @@ function language {
 	echo "13) Go back"
 	echo "14) Exit"
 	echo ""
-	while [[ $OPTION2 !=  "1" && $OPTION2 != "2"  && $OPTION2 != "3" && $OPTION2 != "4" && $OPTION2 != "5" && $OPTION2 != "6" && $OPTION2 != "7" && $OPTION2 != "8" && $OPTION2 != "9" && $OPTION2 != "10" && $OPTION2 != "11" && $OPTION2 != "12" && $OPTION2 != "13" && $OPTION2 !="14" ]]; do
+	while [[ $OPTION2 !=  "1" && $OPTION2 != "2"  && $OPTION2 != "3" && $OPTION2 != "4" && $OPTION2 != "5" && $OPTION2 != "6" && $OPTION2 != "7" && $OPTION2 != "8" && $OPTION2 != "9" && $OPTION2 != "10" && $OPTION2 != "11" && $OPTION2 != "12" && $OPTION2 != "13" && $OPTION2 != "14" ]]; do
 		read -r -p "Select an option [1-14]: " OPTION2
 	done
 	language2
