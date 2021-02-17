@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #Some variables...
-urlregex='(http://crunchyroll.com/|http://www.crunchyroll.com)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+urlregex='(http://crunchyroll.com/|http://www.crunchyroll.com|https://www.crunchyroll.com|https://crunchyroll.com)[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
 
 function start {
 	tput setaf 4; echo "Checking for youtube-dl..."
